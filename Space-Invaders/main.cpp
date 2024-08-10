@@ -19,8 +19,25 @@ int main()
 
 
         // Clear the window
-        window.clear(sf::Color::Blue);
+        window.clear(sf::Color::Black);
 
+        sf::CircleShape circle(50);
+        circle.setFillColor(sf::Color::Green);
+        circle.setPosition(0, 0);
+
+        sf::CircleShape traingle(50);
+        traingle.setPointCount(3);
+        traingle.setFillColor(sf::Color::Blue);
+        traingle.setPosition(400, 300);
+
+        sf::CircleShape square(50);
+        square.setPointCount(4);
+        square.setFillColor(sf::Color::Red);
+        square.setPosition(sf::Vector2f(600,300));
+
+        window.draw(circle);
+        window.draw(traingle);
+        window.draw(square);
         // Display whatever you draw
         window.display();
     }
