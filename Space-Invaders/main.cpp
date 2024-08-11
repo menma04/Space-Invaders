@@ -1,4 +1,20 @@
 #include<SFML/Graphics.hpp>
+
+class player {
+    sf::Texture texture;
+    sf::Sprite sprite;
+
+    int playerScore;
+    int health;
+    int movementSpeed;
+    sf::Vector2f position;
+
+
+    void takeDamage();
+    void move();
+    void shootBullets();    
+};
+
 int main()
 {
     // Define the video mode (dimensions)
@@ -39,20 +55,22 @@ int main()
         //window.draw(traingle);
         //window.draw(square);
         
-        sf::Texture outscal_texture;
-        outscal_texture.loadFromFile("assets/textures/outscal_logo.png");
+        //sf::Texture outscal_texture;
+        //outscal_texture.loadFromFile("assets/textures/outscal_logo.png");
 
-        sf::Sprite sprite;
-        sprite.setTexture(outscal_texture);
+        //sf::Sprite sprite;
+        //sprite.setTexture(outscal_texture);
         //sprite.setRotation(45);
-        sprite.setPosition(100, 300);
-        window.draw(sprite);
+        //sprite.setPosition(100, 300);
+        //window.draw(sprite);
 
-        sf::Font font;
-        font.loadFromFile("assets/fonts/OpenSans.ttf");
-        sf::Text text("SFML is Awesome!", font, 50);
-        text.setFillColor(sf::Color::Red);
-        window.draw(text);
+        //sf::Font font;
+        //font.loadFromFile("assets/fonts/OpenSans.ttf");
+        //sf::Text text("SFML is Awesome!", font, 50);
+        //text.setFillColor(sf::Color::White);
+        //window.draw(text);
+
+
 
         // Display whatever you draw
         window.display();
