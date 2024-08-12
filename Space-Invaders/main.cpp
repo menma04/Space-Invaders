@@ -1,21 +1,34 @@
 #include<SFML/Graphics.hpp>
-#include<iostream> 
+#include<iostream>
+
+using namespace std;
 
 class Player {
    
     int PlayerScore = 0;
     int health = 3;
-    int MovementSpeed = 5;
+    int movement_speed = 5;
     sf::Vector2f position = sf::Vector2f(200.0f,100.0f);
 
 public:
+    Player() {};
+
+    Player(int initialHealth,int Speed ) {
+        health = initialHealth;
+        movement_speed = Speed;
+        cout << health << movement_speed << endl;
+    };
+
+    ~Player() {
+        cout << "This is the destructor" << endl;
+    };
     sf::Vector2f getPosition() {
         return position;
-    }
+    };
 
     int getMovementSpeed() {
-        return MovementSpeed;
-    }
+        return movement_speed;
+    };
     sf::Texture texture;
     sf::Sprite sprite;
     void takeDamage() {};
@@ -34,6 +47,7 @@ int main()
     sf::RenderWindow window(videoMode, "SFML Window");
 
     Player player;
+    Player player1(4, 1);
     player.texture.loadFromFile("assets/textures/player_ship.png");
     player.sprite.setTexture(player.texture);
 
