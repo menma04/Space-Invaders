@@ -3,19 +3,25 @@
 
 class Player {
    
-    int playerScore = 0;
+    int PlayerScore = 0;
     int health = 3;
-    int movementSpeed = 5;
+    int MovementSpeed = 5;
     sf::Vector2f position = sf::Vector2f(200.0f,100.0f);
 
 public:
     sf::Vector2f getPosition() {
         return position;
     }
+
+    int getMovementSpeed() {
+        return MovementSpeed;
+    }
     sf::Texture texture;
     sf::Sprite sprite;
     void takeDamage() {};
-    void move() {};
+    void move(float ofsetX) {
+        position.x += ofsetX;
+    };
     void shootBullets() {};
 };
 
@@ -39,12 +45,12 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close();
 
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-                player.move();
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+                player.move(-1.0*player.getMovementSpeed());
             }
 
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-                player.move();
+                player.move(1.0*player.getMovementSpeed());
             }
         }
 
