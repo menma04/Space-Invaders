@@ -14,8 +14,9 @@ void GameService::initialize() {
 	//empty here
 }
 
-void GameService::isRunning() {
+bool GameService::isRunning() {
 	//empty here
+	return false;
 }
 
 void GameService::render() {

@@ -12,7 +12,7 @@ public:
 
 	void ignite();
 	void update();
-	void isRunning();
+	bool isRunning();
 	void render();
 };
 
