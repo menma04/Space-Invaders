@@ -1,18 +1,22 @@
 #include<SFML/Graphics.hpp>
+#include<iostream> 
 
-class player {
+class Player {
+   
+    int playerScore = 0;
+    int health = 3;
+    int movementSpeed = 5;
+    sf::Vector2f position = sf::Vector2f(200.0f,100.0f);
+
+public:
+    sf::Vector2f getPosition() {
+        return position;
+    }
     sf::Texture texture;
     sf::Sprite sprite;
-
-    int playerScore;
-    int health;
-    int movementSpeed;
-    sf::Vector2f position;
-
-
-    void takeDamage();
-    void move();
-    void shootBullets();    
+    void takeDamage() {};
+    void move() {};
+    void shootBullets() {};
 };
 
 int main()
@@ -23,6 +27,9 @@ int main()
     // Create a window object with specific dimensions and a title
     sf::RenderWindow window(videoMode, "SFML Window");
 
+    Player player;
+    player.texture.loadFromFile("assets/textures/player_ship.png");
+    player.sprite.setTexture(player.texture);
 
 
     while (window.isOpen()) {
@@ -31,12 +38,22 @@ int main()
             // Check for window closure
             if (event.type == sf::Event::Closed)
                 window.close();
+
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+                player.move();
+            }
+
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+                player.move();
+            }
         }
 
 
         // Clear the window
         window.clear(sf::Color::Black);
 
+        player.sprite.setPosition(player.getPosition());
+        window.draw(player.sprite);
         //sf::CircleShape circle(50);
         //circle.setFillColor(sf::Color::Green);
         //circle.setPosition(0, 0);
