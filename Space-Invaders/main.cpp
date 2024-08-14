@@ -1,15 +1,17 @@
-#include"Header/GameService.h"
-int main()
-{
-    GameService* game_service = new GameService();
+#include"Header/Main/GameService.h"
 
-    game_service->ignite();
-
-    while (game_service->isRunning())
+using namespace Main;
+    int main()
     {
-        game_service->update();
-        game_service->render();
-    }
+        GameService* game_service = new GameService();
 
-    return 0;
-}
+        game_service->ignite();
+
+        while (game_service->isRunning())
+        {
+            game_service->update();
+            game_service->render();
+        }
+
+        return 0;
+    }
