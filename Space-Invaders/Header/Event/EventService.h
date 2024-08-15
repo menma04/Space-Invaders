@@ -18,6 +18,8 @@ namespace Event {
 
 		void initialize();
 		void update();
+		bool pressedLeftMouseButton();
+		bool pressedRightMouseButton();
 		void processEvents();
 		bool pressedEscapeKey();
 		bool isKeyboardEvent();

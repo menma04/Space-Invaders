@@ -4,16 +4,22 @@
 namespace Main
 {   
 	using namespace Global;
+	enum class GameState {
+		BOOT,
+		MAIN_MENU,
+		GAMEPLAY
+	};
 	class GameService
 	{
 	private:
-
+		static GameState current_state;
 		Global::ServiceLocator* service_locator;
 		sf::RenderWindow* game_window;
 
 		void initialize();
 		void initializeVariables();
-		void destroy();			
+		void destroy();
+		void showMainMenu();
 
 	public:
 
@@ -24,5 +30,7 @@ namespace Main
 		void update();			
 		void render();			
 		bool isRunning();		
+		static GameState getGameState();
+		static void setGameState(GameState new_state);
 	};
 }
